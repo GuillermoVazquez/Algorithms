@@ -1,5 +1,4 @@
 import math
-import sys
 
 # n-closest points
 # ok so this problem is prettty straightforward
