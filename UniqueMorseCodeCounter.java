@@ -17,37 +17,24 @@ There are 2 different transformations, "--...-." and "--...--.". */
 
 class Solution {
     public int uniqueMorseRepresentations(String[] words) {
-        String[] morse = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."];
-        String[] morseTotal;
-        int count = 0;
-        //parse the words array
-        for(int i = 0; i < words.length; i++){
-            //get a single word
-            String word = words[i];
-            //build the morse code word
-            String build = "";
-            for(int length = 0; length < words[i].length(); length++){
-                //lets map the character to morse code 
-                char c = word.charAt(length); 
-                int numericValue = ((int) c) - 97;
-                //get the morse code for that letter
-                String m = morse[numericValue];
-                build = build + m; 
-            }
-            //the morse code for the current word has now been built and is in build
-            //store the morse code in an array
-            morseTotal.append(build); 
-        }
+        String[] morse = new String[]{".-","-...","-.-.","-..",".","..-.","--.",
+                         "....","..",".---","-.-",".-..","--","-.",
+                         "---",".--.","--.-",".-.","...","-","..-",
+                         "...-",".--","-..-","-.--","--.."};
         
-        //now we have to count the unique morse code words
-        for(int x = 0; x < morseTotal.length; x++){
-            for(int y = 1; y < morseTotal.length; y++){
-            if(morse[x] == morse[y]){
-                count++;
-            }
+        //create a HashSet to insert the unique morse code values
+        Set<String> seen = new HashSet();
+        //parse the elements in words
+        for (String word: words) {
+            StringBuilder code = new StringBuilder();
+            //convert current string to a character array
+            for (char c: word.toCharArray())
+                //append the morse code translation of the current character to code
+                code.append(morse[c - 'a']);
+            seen.add(code.toString());
         }
-        }
-        
-        return count;
+
+        return seen.size();
+    }
     }
 }
