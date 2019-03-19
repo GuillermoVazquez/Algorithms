@@ -1,9 +1,9 @@
-def countApplesAndOranges(house,appleOrangeLocal,numbApplesNumOrr,appleFall,orangeFall):
-    houseLeft = house[0]
-    houseRigt = house[1]
+def countApplesAndOranges(houseStart,houseEnd,a,b,appleFall,orangeFall):
+    houseLeft = houseStart
+    houseRigt = houseEnd
 
-    appleLocal = appleOrangeLocal[0]
-    orangeLocal = appleOrangeLocal[1]
+    appleLocal = a
+    orangeLocal = b
 
     appleHits = 0
     orangeHits = 0
@@ -25,9 +25,10 @@ def countApplesAndOranges(house,appleOrangeLocal,numbApplesNumOrr,appleFall,oran
 
 
 if __name__ == '__main__':
-    house = [7,11]
-    appleOrangeLocal = [5,15]
-    numbApplesNumOrr = [3,2]
+    houseStart = 7
+    houseEnd = 11
+    a = 5
+    b = 15
     appleFall = [-2,2,1]
     orangeFall = [5,-6]
-    countApplesAndOranges(house,appleOrangeLocal,numbApplesNumOrr,appleFall,orangeFall)
+    countApplesAndOranges(houseStart,houseEnd,a,b,appleFall,orangeFall)
