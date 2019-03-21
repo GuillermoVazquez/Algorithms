@@ -1,18 +1,23 @@
 def gradingStudents(grades):
+    result = []
     for grade in grades:
         if grade > 37:
             #we can round here
             compare = (grade // 10) * 10
+            print(compare)
             difference = grade - compare
-            if difference > 2 and difference < 8:
+            print(difference)
+            if difference > 2 and difference < 6:
                 grade = compare + 5
             elif difference >= 8:
                 grade = compare + 10
-            print(grade)
+            result.append(grade)
         else:
             #we cant round here
-            print(grade)
+            result.append(grade)
+    return result
 
 if __name__ == '__main__':
-    grades = [0,84,99,38,37,80]
-    gradingStudents(grades)
+    grades = [73,67,38,33]
+    result = gradingStudents(grades)
+    print(result)
