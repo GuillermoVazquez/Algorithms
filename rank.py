@@ -1,5 +1,6 @@
 import os
 import sys
+import math
 
 #returns the last rank
 def readRank(file):
@@ -15,10 +16,12 @@ def writeRankInfo(file,rank,newRank,good,bad):
     file.write("----------\n")
     fullGood = "+" + good
     fullBad = "-" + bad
+    percentile = (int(newRank) / 1300000) * 100
 
     file.write(fullGood+"\n")
     print(fullGood)
     print(fullBad)
+    print(str(percentile) + "%")
     print(newRank)
     file.write(fullBad+"\n")
     file.write(newRank+"\n")
