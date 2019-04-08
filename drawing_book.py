@@ -1,7 +1,16 @@
 
 def pageCount(n,p):
-    print(min(p//2, n//2 - p//2))
+
+    numberOfSections = n//2 + 1
+
+    distanceFromStart = p//2
+    distanceFromEnd = numberOfSections - ( p//2 + 1)
+
+    print(numberOfSections)
+    print(distanceFromStart)
+    print(distanceFromEnd)
+
 if __name__ == '__main__':
-    n = 7
-    p = 4
+    n = 5
+    p = 5
     pageCount(n,p)
